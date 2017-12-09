@@ -6,15 +6,20 @@ defmodule GitPeer.Daemon.Git do
       repo_directory = String.trim(console_output, "\n")
       {:ok, repo_directory}
     else
-      {:error, error} -> {:error, error}      
-      {console_output, error_code} -> {:error, %{console_output: console_output, error_code: error_code}}
-      error -> {:error, error}
+      {:error, error} ->
+        {:error, error}
+
+      {console_output, error_code} ->
+        {:error, %{console_output: console_output, error_code: error_code}}
+
+      error ->
+        {:error, error}
     end
   end
 
   def get_current_repo do
     with {:ok, repo_directory} <- get_current_repo_directory(),
-      %GitCli.Repository{} = repo <- GitCli.new(repo_directory) do
+         %GitCli.Repository{} = repo <- GitCli.new(repo_directory) do
       {:ok, repo}
     else
       {:error, error} -> {:error, error}
