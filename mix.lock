@@ -1,0 +1,5 @@
+%{
+  "git_cli": {:hex, :git_cli, "0.2.4", "43f58045f5d168fa2cff8d2e3822b8c43f294b4b832a419ed8cc01337f1c5b3d", [], [], "hexpm"},
+  "git_diff": {:hex, :git_diff, "0.3.0", "a69f04af6bce53b3e0cbdded3322b2af75ca4fe2d7166998bfc7b7ffd8d755fc", [], [], "hexpm"},
+  "gitex": {:hex, :gitex, "0.2.0", "3c8f31fc7ac80e2258e5481f0363cc9af89cb9b3f99aa1fe001107c52516ec8c", [], [], "hexpm"},
+}
