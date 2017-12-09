@@ -68,4 +68,10 @@ defmodule GitPeer.Daemon.Git do
       error -> {:error, error}
     end
   end
+
+  def get_diff(%GitCli.Repository{} = repo, options \\ []) do
+    path = Keyword.get(options, :path, "")
+    ref = Keyword.get(options, :ref, "master")
+    GitCli.diff(repo, ~w(#{ref} #{path}))
+  end
 end
