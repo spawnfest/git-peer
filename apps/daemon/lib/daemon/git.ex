@@ -42,4 +42,17 @@ defmodule GitPeer.Daemon.Git do
       error -> {:error, error}
     end
   end
+
+  def get_current_branch(%GitCli.Repository{} = repo) do
+    with {:ok, branch} <- GitCli.rev_parse(repo, ~w(--abbrev-ref HEAD)) do
+      branch =
+        branch
+        |> String.trim()
+
+      {:ok, branch}
+    else
+      {:error, error} -> {:error, error}
+      error -> {:error, error}
+    end
+  end
 end
