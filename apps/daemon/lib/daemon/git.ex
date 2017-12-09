@@ -55,4 +55,17 @@ defmodule GitPeer.Daemon.Git do
       error -> {:error, error}
     end
   end
+
+  def get_current_hash(%GitCli.Repository{} = repo) do
+    with {:ok, hash} <- GitCli.rev_parse(repo, ~w(HEAD)) do
+      hash =
+        hash
+        |> String.trim()
+
+      {:ok, hash}
+    else
+      {:error, error} -> {:error, error}
+      error -> {:error, error}
+    end
+  end
 end
