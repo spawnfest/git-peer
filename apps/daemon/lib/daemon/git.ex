@@ -2,7 +2,7 @@ defmodule GitPeer.Daemon.Git do
   alias Git, as: GitCli
 
   def get_current_repo_directory do
-    with {console_output, 0} <- System.cmd("git", ["rev-parse", "--show-toplevel"]) do
+    with {console_output, 0} <- System.cmd("git", ~w(rev-parse --show-toplevel)) do
       repo_directory = String.trim(console_output, "\n")
       {:ok, repo_directory}
     else
@@ -28,7 +28,7 @@ defmodule GitPeer.Daemon.Git do
   end
 
   def get_diff_files(%GitCli.Repository{} = repo) do
-    with {:ok, diff} <- GitCli.diff(repo, ["--stat", "master"]) do
+    with {:ok, diff} <- GitCli.diff(repo, ~w(--stat master)) do
       files =
         diff
         |> String.split("\n")
