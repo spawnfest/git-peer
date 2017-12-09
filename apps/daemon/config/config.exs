@@ -6,5 +6,6 @@ config :logger,
   backends: [LoggerLagerBackend],
   handle_otp_reports: false,
   level: :debug
+
 #
 #     import_config "#{Mix.env}.exs"

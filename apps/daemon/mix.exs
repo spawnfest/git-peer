@@ -30,7 +30,7 @@ defmodule GitPeer.Daemon.MixProject do
       {:gitex, "~> 0.2.0"},
       {:git_diff, "~> 0.3.0"},
       {:lasp, "~> 0.8.2"},
-      {:logger_lager_backend, "~> 0.1.0"},
+      {:logger_lager_backend, "~> 0.1.0"}
     ]
   end
 end

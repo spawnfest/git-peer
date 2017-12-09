@@ -12,12 +12,12 @@ defmodule GitPeer.Daemon.GitTest do
   end
 
   setup_all do
-    on_exit fn ->
+    on_exit(fn ->
       System.tmp_dir!()
       |> Path.join("repo_*")
       |> Path.wildcard()
       |> Enum.each(&File.rm_rf/1)
-    end
+    end)
   end
 
   test "Get current repo directory", %{path: path} do

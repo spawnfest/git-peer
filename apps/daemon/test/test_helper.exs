@@ -13,11 +13,11 @@ defmodule GitSetup do
 
   def create_repo(path) do
     with :ok <- File.mkdir(path),
-      {:ok, git_cli_repo} <- GitCli.init(path),
-      :ok <- File.write(Path.join(path, ".gitignore"), ""),
-      {:ok, _} <- GitCli.add(git_cli_repo, ~w(-A)),
-      {:ok, _} <- GitCli.commit(git_cli_repo, ~w(-m initial)),
-      %{} = gitex_repo <- Gitex.Git.open(path) do
+         {:ok, git_cli_repo} <- GitCli.init(path),
+         :ok <- File.write(Path.join(path, ".gitignore"), ""),
+         {:ok, _} <- GitCli.add(git_cli_repo, ~w(-A)),
+         {:ok, _} <- GitCli.commit(git_cli_repo, ~w(-m initial)),
+         %{} = gitex_repo <- Gitex.Git.open(path) do
       {:ok, %{gitex_repo: gitex_repo, git_cli_repo: git_cli_repo}}
     else
       {:error, error} -> {:error, error}
