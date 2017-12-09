@@ -26,4 +26,20 @@ defmodule GitPeer.Daemon.Git do
       error -> {:error, error}
     end
   end
+
+  def get_diff_files(%GitCli.Repository{} = repo) do
+    with {:ok, diff} <- GitCli.diff(repo, ["--stat", "master"]) do
+      files =
+        diff
+        |> String.split("\n")
+        |> Enum.map(&Regex.named_captures(~r/ *(?<path>\S*) *\|/, &1))
+        |> Enum.filter(&(not is_nil(&1)))
+        |> Enum.map(&Map.get(&1, "path"))
+
+      {:ok, files}
+    else
+      {:error, error} -> {:error, error}
+      error -> {:error, error}
+    end
+  end
 end
