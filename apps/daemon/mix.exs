@@ -9,7 +9,7 @@ defmodule GitPeer.Daemon.MixProject do
       config_path: "../../config/config.exs",
       deps_path: "../../deps",
       lockfile: "../../mix.lock",
-      elixir: "~> 1.6-dev",
+      elixir: "~> 1.4",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
