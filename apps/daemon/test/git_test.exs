@@ -47,4 +47,18 @@ defmodule GitPeer.Daemon.GitTest do
 
     assert files === actual_files
   end
+
+  test "Get current branch", %{git_cli_repo: git_cli_repo} do
+    branch = "master"
+    {:ok, actual_branch} = DaemonGit.get_current_branch(git_cli_repo)
+
+    assert branch === actual_branch
+  end
+
+  test "Get current hash", %{git_cli_repo: git_cli_repo, gitex_repo: gitex_repo} do
+    %{hash: hash} = Gitex.get("master", gitex_repo)
+    {:ok, actual_hash} = DaemonGit.get_current_hash(git_cli_repo)
+
+    assert hash === actual_hash
+  end
 end
