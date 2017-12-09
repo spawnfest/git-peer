@@ -8,7 +8,6 @@ defmodule GitPeer.Daemon.Application do
   alias GitPeer.Daemon.{Me, User}
 
   def start(_type, _args) do
-
     # List all child processes to be supervised
     children = [
       {Me, []}
