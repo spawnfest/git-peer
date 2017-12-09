@@ -1,2 +1,4 @@
-# git-peer
-by Alftanes
+# GitPeer
+
+**TODO: Add description**
+
