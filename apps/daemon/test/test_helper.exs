@@ -2,6 +2,7 @@ ExUnit.start()
 
 defmodule GitSetup do
   alias Git, as: GitCli
+
   def temp_name do
     "repo_" <> Base.encode16(:crypto.strong_rand_bytes(32))
   end

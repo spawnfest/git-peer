@@ -8,11 +8,16 @@ defmodule GitPeer.Daemon.GitTest do
     path = GitSetup.repo_path()
     {:ok, %{gitex_repo: gitex_repo, git_cli_repo: git_cli_repo}} = GitSetup.create_repo(path)
 
-    on_exit fn ->
-      File.rm_rf(path)
-    end
-
     %{path: path, gitex_repo: gitex_repo, git_cli_repo: git_cli_repo}
+  end
+
+  setup_all do
+    on_exit fn ->
+      System.tmp_dir!()
+      |> Path.join("repo_*")
+      |> Path.wildcard()
+      |> Enum.each(&File.rm_rf/1)
+    end
   end
 
   test "Get current repo directory", %{path: path} do
