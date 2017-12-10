@@ -1,4 +1,6 @@
 defmodule GitPeer.Services.Review do
+  @moduledoc "Service for managing reviews"
+
   def request_review(%{requester: requester, ref: ref, diff: diff, users: user}) do
     :lasp.update(
       {"reviews", :state_orset},
@@ -8,7 +10,7 @@ defmodule GitPeer.Services.Review do
   end
 
   def get_reviews do
-    with {:ok, review} when is_list(reviews) <-
+    with {:ok, reviews} when is_list(reviews) <-
            :lasp.query({"reviews", :state_orset}) do
       reviews
       |> :sets.to_list()
@@ -32,7 +34,7 @@ defmodule GitPeer.Services.Review do
   end
 
   def get_reviews do
-    with {:ok, review} when is_list(reviews) <-
+    with {:ok, reviews} when is_list(reviews) <-
            :lasp.query({"review_responses", :state_orset}) do
       reviews
       |> :sets.to_list()

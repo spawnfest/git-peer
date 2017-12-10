@@ -1,4 +1,6 @@
 defmodule GitPeer.Daemon.Connect do
+  @moduledoc "Functions related to network connectivity"
+
   def parse_ip(ip) when is_tuple(ip) do
     {:ok, ip}
   end
