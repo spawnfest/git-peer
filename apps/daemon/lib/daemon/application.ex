@@ -6,6 +6,8 @@ defmodule GitPeer.Daemon.Application do
   use Application
 
   def start(_type, _args) do
+    # Doesn't work now need to patch upstream
+    # Mdns.Server.start()
     # List all child processes to be supervised
     children = []
 
