@@ -15,6 +15,8 @@ defmodule GitPeer.MixProject do
   #
   # Run "mix help deps" for examples and options.
   defp deps do
-    []
+    [
+      {:credo, "~> 0.8.10"}
+    ]
   end
 end

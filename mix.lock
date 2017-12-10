@@ -1,5 +1,7 @@
 %{
   "acceptor_pool": {:hex, :acceptor_pool, "1.0.0-rc.0", "679d741df87fc13599b1aef2df8f78f1f880449a6befab7c44fb6fae0e92a2de", [], [], "hexpm"},
+  "bunt": {:hex, :bunt, "0.2.0", "951c6e801e8b1d2cbe58ebbd3e616a869061ddadcc4863d0a2182541acae9a38", [], [], "hexpm"},
+  "credo": {:hex, :credo, "0.8.10", "261862bb7363247762e1063713bb85df2bbd84af8d8610d1272cd9c1943bba63", [], [{:bunt, "~> 0.2.0", [hex: :bunt, repo: "hexpm", optional: false]}], "hexpm"},
   "gen_flow": {:hex, :gen_flow, "0.0.5", "2ff6abe3ed1c5c9bc41f81bf09364a3f63f96e4d378d45a2a2ddc4fc06f3484a", [], [], "hexpm"},
   "git_cli": {:hex, :git_cli, "0.2.4", "43f58045f5d168fa2cff8d2e3822b8c43f294b4b832a419ed8cc01337f1c5b3d", [], [], "hexpm"},
   "git_diff": {:hex, :git_diff, "0.3.0", "a69f04af6bce53b3e0cbdded3322b2af75ca4fe2d7166998bfc7b7ffd8d755fc", [], [], "hexpm"},

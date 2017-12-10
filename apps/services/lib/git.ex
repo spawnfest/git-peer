@@ -1,4 +1,8 @@
 defmodule GitPeer.Services.Git do
+  @moduledoc """
+  Git services
+  """
+
   alias Git, as: GitCli
 
   def get_current_repo_directory do

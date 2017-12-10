@@ -6,7 +6,9 @@ defmodule GitPeer.Services.GitTest do
 
   setup do
     path = GitSetup.repo_path()
-    {:ok, %{gitex_repo: gitex_repo, git_cli_repo: git_cli_repo}} = GitSetup.create_repo(path)
+
+    {:ok, %{gitex_repo: gitex_repo, git_cli_repo: git_cli_repo}} =
+      GitSetup.create_repo(path)
 
     %{path: path, gitex_repo: gitex_repo, git_cli_repo: git_cli_repo}
   end

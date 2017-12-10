@@ -2,6 +2,7 @@ ExUnit.start()
 
 defmodule GitSetup do
   alias Git, as: GitCli
+  alias Gitex.Git, as: GitexGit
 
   def temp_name do
     "repo_" <> Base.encode16(:crypto.strong_rand_bytes(32))
@@ -17,7 +18,7 @@ defmodule GitSetup do
          :ok <- File.write(Path.join(path, ".gitignore"), ""),
          {:ok, _} <- GitCli.add(git_cli_repo, ~w(-A)),
          {:ok, _} <- GitCli.commit(git_cli_repo, ~w(-m initial)),
-         %{} = gitex_repo <- Gitex.Git.open(path) do
+         %{} = gitex_repo <- GitexGit.open(path) do
       {:ok, %{gitex_repo: gitex_repo, git_cli_repo: git_cli_repo}}
     else
       {:error, error} -> {:error, error}
