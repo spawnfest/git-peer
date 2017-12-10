@@ -28,6 +28,7 @@ defmodule GitPeer.Daemon.MixProject do
     [
       {:logger_lager_backend, "~> 0.1.0"},
       {:lasp, "~> 0.8.2"}
+      {:services, in_umbrella: true},
     ]
   end
 end
