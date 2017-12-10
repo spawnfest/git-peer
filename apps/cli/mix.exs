@@ -1,4 +1,8 @@
 defmodule GitPeer.Cli.MixProject do
+  @moduledoc """
+  Mix configuration for GitPeer.Cli
+  """
+
   use Mix.Project
 
   def project do
