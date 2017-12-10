@@ -1,9 +1,8 @@
 defmodule GitPeer.Services.Review do
-
-  def request_review(%{requester: requester, ref: ref, users: user}) do
+  def request_review(%{requester: requester, ref: ref, diff: diff, users: user}) do
     :lasp.update(
       {"reviews", :state_orset},
-      %{requester: requester, ref: ref, users: user},
+      %{requester: requester, ref: ref, diff: diff, users: user},
       self()
     )
   end
@@ -19,10 +18,15 @@ defmodule GitPeer.Services.Review do
     end
   end
 
-  def review_response(%{requester: requester, ref: ref, reviewer: reviewer, review: review}) do
+  def review_response(%{
+        requester: requester,
+        ref: ref,
+        reviewer: reviewer,
+        review: review
+      }) do
     :lasp.update(
       {"review_responses", :state_orset},
-      %{requester: requester, ref: ref, reviewer: reviewer, review: review}
+      %{requester: requester, ref: ref, reviewer: reviewer, review: review},
       self()
     )
   end

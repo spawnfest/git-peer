@@ -1,4 +1,4 @@
-defmodule GitPeer.Services.Git do
+defmodule GitPeer.Cli.Git do
   @moduledoc """
   Git services
   """

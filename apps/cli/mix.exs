@@ -25,7 +25,9 @@ defmodule GitPeer.Cli.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:logger_lager_backend, "~> 0.1.0"}      
+      {:git_cli, "~> 0.2.4"},
+      {:gitex, "~> 0.2.0"},
+      {:logger_lager_backend, "~> 0.1.0"}
     ]
   end
 end

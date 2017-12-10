@@ -1,8 +1,8 @@
-defmodule GitPeer.Services.GitTest do
+defmodule GitPeer.Cli.GitTest do
   use ExUnit.Case
-  doctest GitPeer.Services.Git, import: true
+  doctest GitPeer.Cli.Git, import: true
   alias Git, as: GitCli
-  alias GitPeer.Services
+  alias GitPeer.Cli
 
   setup do
     path = GitSetup.repo_path()
@@ -24,14 +24,14 @@ defmodule GitPeer.Services.GitTest do
 
   test "Get current repo directory", %{path: path} do
     File.cd(path)
-    {:ok, repo_path} = Services.Git.get_current_repo_directory()
+    {:ok, repo_path} = Cli.Git.get_current_repo_directory()
 
     assert path === repo_path
   end
 
   test "Get current repo", %{path: path} do
     File.cd(path)
-    {:ok, %{path: repo_path}} = Services.Git.get_current_repo()
+    {:ok, %{path: repo_path}} = Cli.Git.get_current_repo()
 
     assert path === repo_path
   end
@@ -45,21 +45,21 @@ defmodule GitPeer.Services.GitTest do
     |> Gitex.commit(gitex_repo, "new_thing", "first")
 
     GitCli.checkout(git_cli_repo, ~w(new_thing))
-    {:ok, actual_files} = Services.Git.get_diff_files(git_cli_repo)
+    {:ok, actual_files} = Cli.Git.get_diff_files(git_cli_repo)
 
     assert files === actual_files
   end
 
   test "Get current branch", %{git_cli_repo: git_cli_repo} do
     branch = "master"
-    {:ok, actual_branch} = Services.Git.get_current_branch(git_cli_repo)
+    {:ok, actual_branch} = Cli.Git.get_current_branch(git_cli_repo)
 
     assert branch === actual_branch
   end
 
   test "Get current hash", %{git_cli_repo: git_cli_repo, gitex_repo: gitex_repo} do
     %{hash: hash} = Gitex.get("master", gitex_repo)
-    {:ok, actual_hash} = Services.Git.get_current_hash(git_cli_repo)
+    {:ok, actual_hash} = Cli.Git.get_current_hash(git_cli_repo)
 
     assert hash === actual_hash
   end
