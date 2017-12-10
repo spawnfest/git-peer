@@ -7,8 +7,8 @@
         excluded: []
       },
       checks: [
-        # Mix format seems to produce longer lines than the 80 char limit
-        # {Credo.Check.Readability.MaxLineLength, priority: :low, max_length: 100}
+        # I love this override
+        {Credo.Check.Design.AliasUsage, if_nested_deeper_than: 2},
       ]
     }
   ]
