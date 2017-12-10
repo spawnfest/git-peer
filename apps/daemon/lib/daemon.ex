@@ -5,6 +5,8 @@ defmodule GitPeer.Daemon do
 
   alias GitPeer.Services
 
+  use GenServer
+
   def add_user(%{"user" => user, "key" => key}) do
     Services.User.set_user(%{"user" => user, "key" => key})
   end
@@ -42,5 +44,9 @@ defmodule GitPeer.Daemon do
 
   def get_reviews do
     Services.Review.get_reviews()
+  end
+
+  def handle_info(:print, _) do
+    IO.puts("Hello")
   end
 end
