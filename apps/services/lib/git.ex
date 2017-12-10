@@ -1,4 +1,4 @@
-defmodule GitPeer.Daemon.Git do
+defmodule GitPeer.Services.Git do
   alias Git, as: GitCli
 
   def get_current_repo_directory do

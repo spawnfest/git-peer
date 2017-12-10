@@ -1,4 +1,4 @@
-defmodule GitPeer.Daemon.User do
+defmodule GitPeer.Services.User do
   def get_user_and_public_key do
     public_key = Path.expand("~/.ssh/id_rsa.pub")
 
