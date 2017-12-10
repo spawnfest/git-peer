@@ -8,7 +8,7 @@ defmodule GitPeer.Services.Review do
   end
 
   def get_reviews do
-    with {:ok, review} when is_list(reviews) <-
+    with {:ok, reviews} when is_list(reviews) <-
            :lasp.query({"reviews", :state_orset}) do
       reviews
       |> :sets.to_list()
