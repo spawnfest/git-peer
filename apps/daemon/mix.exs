@@ -26,7 +26,8 @@ defmodule GitPeer.Daemon.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:logger_lager_backend, "~> 0.1.0"}
+      {:logger_lager_backend, "~> 0.1.0"},
+      {:lasp, "~> 0.8.2"}
     ]
   end
 end
