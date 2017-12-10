@@ -26,3 +26,5 @@ erl_crash.dump
 .tool-versions
 .elixir_ls
 
+# ignore cli escript binary
+/apps/cli/git-peer
