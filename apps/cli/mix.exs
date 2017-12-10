@@ -15,7 +15,8 @@ defmodule GitPeer.Cli.MixProject do
       lockfile: "../../mix.lock",
       elixir: "~> 1.6-dev",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      escript: [main_module: GitPeer.Cli, name: "git-peer"]
     ]
   end
 
