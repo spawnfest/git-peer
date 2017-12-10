@@ -18,12 +18,14 @@ defmodule GitPeer.Cli.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:lager, :logger]
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    []
+    [
+      {:logger_lager_backend, "~> 0.1.0"}      
+    ]
   end
 end
