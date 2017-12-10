@@ -37,6 +37,7 @@ defmodule GitPeer.Cli do
       parse_double_dash: true,
       subcommands: [
         review: Review.optimus_config(),
+        connect: Connect.optimus_config()
       ]
     ]
   end
