@@ -22,5 +22,7 @@ erl_crash.dump
 # Ignore log files
 **/log/
 
-# Ignore asdf
+# Ignore local dev tooling
 .tool-versions
+.elixir_ls
+
